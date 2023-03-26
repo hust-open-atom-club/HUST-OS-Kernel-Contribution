@@ -1,0 +1,4 @@
+[submodule "smatch"]
+	path = smatch
+	url = https://repo.or.cz/smatch.git
+	branch = master
