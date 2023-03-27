@@ -1,0 +1,86 @@
+drivers/i2c/busses/i2c-davinci.c:765 davinci_i2c_probe() warn: platform_get_irq() does not return zero
+drivers/soc/renesas/renesas-soc.c:536 renesas_soc_init() warn: 'chipid' from ioremap() not released on lines: 475.
+drivers/ptp/ptp_qoriq.c:612 ptp_qoriq_probe() warn: 'base' from ioremap() not released on lines: 612
+drivers/atm/he.c:1520 he_start() warn: 'he_dev->membase' from ioremap() not released on lines: 1061,1118,1168,1417,1427,1433,1468.
+drivers/gpu/drm/tiny/bochs.c:290 bochs_hw_init() warn: 'bochs->mmio' from ioremap() not released on lines: 246,250,254.
+drivers/hwmon/xgene-hwmon.c:757 xgene_hwmon_probe() warn: 'ctx->pcc_comm_addr' from ioremap() not released on lines: 757.
+drivers/iio/adc/at91-sama5d2_adc.c:2404 at91_adc_probe() warn: platform_get_irq() does not return zero
+drivers/usb/dwc3/gadget.c:4417 dwc3_gadget_get_irq() warn: platform_get_irq() does not return zero
+drivers/usb/dwc3/host.c:60 dwc3_host_get_irq() warn: platform_get_irq() does not return zero
+drivers/usb/dwc3/drd.c:160 dwc3_otg_get_irq() warn: platform_get_irq() does not return zero
+drivers/soc/aspeed/aspeed-lpc-snoop.c:170 aspeed_lpc_snoop_config_irq() warn: platform_get_irq() does not return zero
+drivers/clocksource/timer-davinci.c:332 davinci_timer_register() warn: 'base' from ioremap() not released on lines: 274.
+drivers/regulator/stm32-pwr.c:166 stm32_pwr_regulator_probe() warn: 'base' from of_iomap() not released on lines: 151,166.
+drivers/soc/mediatek/mtk-devapc.c:292 mtk_devapc_probe() warn: 'ctx->infra_base' from of_iomap() not released on lines: 277,281.
+drivers/soc/mediatek/mtk-svs.c:1739 svs_thermal_efuse_get_data() warn: passing zero to 'PTR_ERR'
+drivers/comedi/drivers/ii_pci20kc.c:503 ii20k_attach() warn: 'dev->mmio' from ioremap() not released on lines: 452,457.
+drivers/usb/typec/ucsi/ucsi.c:1037 ucsi_dr_swap() warn: missing error code 'ret'
+drivers/soc/bcm/brcmstb/biuctrl.c:291 setup_hifcpubiuctrl_regs() warn: 'cpubiuctrl_base' from of_iomap() not released on lines: 291.
+drivers/usb/gadget/function/uvc_v4l2.c:124 find_format_by_pix() error: 'fmtdesc' dereferencing possible ERR_PTR()
+drivers/usb/gadget/function/uvc_v4l2.c:378 uvc_v4l2_enum_format() error: 'fmtdesc' dereferencing possible ERR_PTR()
+drivers/media/usb/dvb-usb/dib0700_core.c:891 dib0700_probe() error: uninitialized symbol 'hwversion'.
+drivers/media/usb/dvb-usb/dib0700_core.c:891 dib0700_probe() error: uninitialized symbol 'romversion'.
+drivers/media/usb/dvb-usb/dib0700_core.c:891 dib0700_probe() error: uninitialized symbol 'fw_version'.
+drivers/media/usb/dvb-usb/dib0700_core.c:891 dib0700_probe() error: uninitialized symbol 'fwtype'.
+drivers/media/usb/dvb-usb/dib0700_core.c:894 dib0700_probe() error: uninitialized symbol 'fw_version'
+drivers/media/usb/dvb-usb/dib0700_devices.c:2147 tfe8096p_frontend_attach() error: uninitialized symbol 'fw_version'.
+drivers/media/usb/dvb-usb/dib0700_devices.c:2384 stk9090m_frontend_attach() error: uninitialized symbol 'fw_version'.
+drivers/media/usb/dvb-usb/dib0700_devices.c:2456 nim9090md_frontend_attach() error: uninitialized symbol 'fw_version'.
+drivers/watchdog/pcwd_usb.c:706 usb_pcwd_probe() error: uninitialized symbol 'option_switches'.
+drivers/watchdog/dw_wdt.c:158 dw_wdt_get_min_timeout() error: buffer overflow 'dw_wdt->timeouts' 16 <= 16 (assuming for loop doesn't break)
+drivers/watchdog/dw_wdt.c:185 dw_wdt_get_timeout() error: buffer overflow 'dw_wdt->timeouts' 16 <= 16 (assuming for loop doesn't break)
+drivers/platform/x86/pmc_atom.c:489 pmc_setup_dev() warn: 'pmc->regmap' from ioremap() not released on lines: 489.                                                                                                 
+drivers/isdn/hardware/mISDN/mISDNinfineon.c:854 setup_io() warn: 'hw->addr.p' from ioremap() not released on lines: 839,852.                                                                                       
+drivers/isdn/hardware/mISDN/mISDNinfineon.c:854 setup_io() warn: 'hw->cfg.p' from ioremap() not released on lines: 703,839,852.                                                                                    
+drivers/net/ethernet/qlogic/netxen/netxen_nic_main.c:811 netxen_setup_pci_map() warn: 'ahw->pci_base0' from ioremap() not released on lines: 811.                                                                  
+drivers/net/ethernet/qlogic/netxen/netxen_nic_main.c:811 netxen_setup_pci_map() warn: 'ahw->pci_base1' from ioremap() not released on lines: 811.                                                                  
+drivers/net/ethernet/qlogic/netxen/netxen_nic_main.c:811 netxen_setup_pci_map() warn: 'ahw->pci_base1' from ioremap() not released on lines: 811.                                                                  
+drivers/net/ethernet/qlogic/netxen/netxen_nic_main.c:811 netxen_setup_pci_map() warn: 'ahw->pci_base2' from ioremap() not released on lines: 811.                                                                  
+drivers/net/ethernet/qlogic/netxen/netxen_nic_main.c:811 netxen_setup_pci_map() warn: 'ahw->pci_base2' from ioremap() not released on lines: 811.                                                                  
+drivers/net/ethernet/qlogic/netxen/netxen_nic_main.c:811 netxen_setup_pci_map() warn: 'db_ptr' from ioremap() not released on lines: 811.                                                                          
+drivers/net/ethernet/netronome/nfp/nfpcore/nfp6000_pcie.c:705 enable_bars() warn: 'bar->iomem' from ioremap() not released on lines: 705.                                                                          
+drivers/net/ethernet/freescale/enetc/enetc.c:3177 enetc_pci_probe() warn: 'hw->reg' from ioremap() not released on lines: 3177.                                                                                    
+drivers/net/ethernet/mellanox/mlx4/cmd.c:2545 mlx4_cmd_init() warn: 'priv->cmd.hcr' from ioremap() not released on lines: 2545.                                                                                    
+drivers/net/ethernet/mellanox/mlx5/core/uar.c:161 alloc_uars_page() warn: 'up->map' from ioremap() not released on lines: 161.                                                                                     
+drivers/vfio/platform/reset/vfio_platform_bcmflexrm.c:97 vfio_platform_bcmflexrm_reset() warn: 'reg->ioaddr' from ioremap() not released on lines: 97.                                                             
+drivers/vfio/platform/vfio_platform_common.c:437 vfio_platform_read_mmio() warn: 'reg->ioaddr' from ioremap() not released on lines: 437.                                                                          
+drivers/vfio/platform/vfio_platform_common.c:515 vfio_platform_write_mmio() warn: 'reg->ioaddr' from ioremap() not released on lines: 515.                                                                         
+drivers/vfio/fsl-mc/vfio_fsl_mc.c:275 vfio_fsl_mc_read() warn: 'region->ioaddr' from ioremap() not released on lines: 267,273.                                                                                     
+drivers/vfio/fsl-mc/vfio_fsl_mc.c:355 vfio_fsl_mc_write() warn: 'region->ioaddr' from ioremap() not released on lines: 346,349,353.
+drivers/gpu/drm/gma500/gtt.c:284 psb_gtt_init() warn: 'dev_priv->gtt_map' from ioremap() not released on lines: 284.
+drivers/gpu/drm/gma500/psb_drv.c:416 psb_driver_load() warn: 'dev_priv->aux_reg' from ioremap() not released on lines: 350.
+drivers/gpu/drm/gma500/psb_drv.c:416 psb_driver_load() warn: 'dev_priv->sgx_reg' from ioremap() not released on lines: 350.
+drivers/gpu/drm/gma500/psb_drv.c:416 psb_driver_load() warn: 'dev_priv->vdc_reg' from ioremap() not released on lines: 350.
+drivers/gpu/drm/amd/amdgpu/amdgpu_device.c:3954 amdgpu_device_init() warn: 'adev->rmmio' from ioremap() not released on lines: 3688,3717.
+drivers/pci/endpoint/pci-epc-mem.c:204 pci_epc_mem_alloc_addr() warn: 'virt_addr' from ioremap() not released on lines: 204.
+drivers/video/fbdev/s1d13xxxfb.c:904 s1d13xxxfb_probe() warn: 'default_par->regs' from ioremap() not released on lines: 904.
+drivers/video/fbdev/s1d13xxxfb.c:904 s1d13xxxfb_probe() warn: 'info->screen_base' from ioremap() not released on lines: 904.
+drivers/video/fbdev/imsttfb.c:1544 imsttfb_probe() warn: 'par->cmap_regs' from ioremap() not released on lines: 1544.
+drivers/video/fbdev/sm501fb.c:1653 sm501fb_start() warn: 'info->fbmem' from ioremap() not released on lines: 1653.
+drivers/video/fbdev/vermilion/vermilion.c:353 vmlfb_enable_mmio() warn: 'par->gpu_mem' from ioremap() not released on lines: 353.
+drivers/video/fbdev/controlfb.c:998 control_of_init() warn: 'p->cmap_regs' from ioremap() not released on lines: 998.
+drivers/video/fbdev/controlfb.c:998 control_of_init() warn: 'p->control_regs' from ioremap() not released on lines: 998.
+drivers/cpufreq/pcc-cpufreq.c:534 pcc_cpufreq_probe() warn: 'pcch_virt_addr' from ioremap() not released on lines: 534.
+drivers/mtd/maps/pcmciamtd.c:631 pcmciamtd_config() warn: 'dev->win_base' from ioremap() not released on lines: 584,628.
+drivers/mtd/maps/intel_vr_nor.c:170 vr_nor_init_maps() warn: 'p->map.virt' from ioremap() not released on lines: 170.
+drivers/mtd/maps/sbc_gxx.c:216 init_sbc_gxx() warn: 'iomapadr' from ioremap() not released on lines: 208.
+drivers/comedi/drivers/ii_pci20kc.c:503 ii20k_attach() warn: 'dev->mmio' from ioremap() not released on lines: 452,457.
+drivers/message/fusion/mptbase.c:1741 mpt_mapresources() warn: 'mem' from ioremap() not released on lines: 1741.
+drivers/tty/serial/lpc32xx_hs.c:550 serial_lpc32xx_request_port() warn: 'port->membase' from ioremap() not released on lines: 550.
+drivers/tty/serial/8250/8250_port.c:3007 serial8250_request_std_resource() warn: 'port->membase' from ioremap() not released on lines: 3007.
+drivers/infiniband/hw/mthca/mthca_av.c:364 mthca_init_av_table() warn: 'dev->av_table.av_map' from ioremap() not released on lines: 364.
+drivers/infiniband/hw/bnxt_re/qplib_fp.c:509 bnxt_qplib_map_nq_db() warn: 'nq_db->reg.bar_reg' from ioremap() not released on lines: 509.
+drivers/infiniband/hw/bnxt_re/qplib_res.c:818 bnxt_qplib_alloc_dpi_tbl() warn: 'dpit->dbr_bar_reg_iomem' from ioremap() not released on lines: 818.
+drivers/firmware/qemu_fw_cfg.c:299 fw_cfg_do_platform_probe() warn: 'fw_cfg_dev_base' from ioremap() not released on lines: 296.
+drivers/scsi/pcmcia/nsp_cs.c:1587 nsp_cs_config_check() warn: 'data->MmioAddress' from ioremap() not released on lines: 1587.
+drivers/scsi/qla4xxx/ql4_os.c:5563 qla4_8xxx_iospace_config() warn: 'ha->nx_pcibase' from ioremap() not released on lines: 5563.
+drivers/scsi/qla4xxx/ql4_os.c:5630 qla4xxx_iospace_config() warn: 'ha->reg' from ioremap() not released on lines: 5630.
+drivers/scsi/ips.c:7034 ips_init_phase1() warn: 'ioremap_ptr' from ioremap() not released on lines: 6898,6928,6941,6950,6962,6972,6980,6988,7002,7029.
+drivers/scsi/lpfc/lpfc_init.c:12076 lpfc_sli4_pci_mem_setup() warn: 'phba->sli4_hba.dpp_regs_memmap_p' from ioremap() not released on lines: 12076.
+drivers/scsi/lpfc/lpfc_init.c:12076 lpfc_sli4_pci_mem_setup() warn: 'phba->sli4_hba.drbl_regs_memmap_p' from ioremap() not released on lines: 12076.
+drivers/scsi/qla2xxx/qla_mr.c:805 qlafx00_iospace_config() warn: 'ha->cregbase' from ioremap() not released on lines: 805.
+drivers/scsi/qla2xxx/qla_mr.c:805 qlafx00_iospace_config() warn: 'ha->iobase' from ioremap() not released on lines: 805.
+drivers/scsi/qla2xxx/qla_nx.c:1685 qla82xx_iospace_config() warn: 'ha->nx_pcibase' from ioremap() not released on lines: 1685.
+drivers/scsi/qla2xxx/qla_nx.c:1685 qla82xx_iospace_config() warn: 'ha->nxdb_wr_ptr' from ioremap() not released on lines: 1685.
+drivers/scsi/qla2xxx/qla_os.c:2131 qla2x00_iospace_config() warn: 'ha->iobase' from ioremap() not released on lines: 2131.
+drivers/scsi/qla2xxx/qla_os.c:2224 qla83xx_iospace_config() warn: 'ha->iobase' from ioremap() not released on lines: 2224.
