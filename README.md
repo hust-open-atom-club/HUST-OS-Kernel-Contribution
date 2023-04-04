@@ -5,7 +5,7 @@ HUST OS Kernel Contribution Team
 
 ### Shared link
 
-https://ixy0caf7465.feishu.cn/sheets/shtcn3vtmnydItfVrbetQ3apFV7?sheet=0jMqiA
+https://ixy0caf7465.feishu.cn/base/PjgybjSwfaZn4Cso5Daclfzknng?table=tbl6MOmeeFuw7pYx&view=vew0X24kil
 
 ### Testing Kernel with Smatch
 
