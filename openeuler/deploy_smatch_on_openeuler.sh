@@ -37,16 +37,17 @@ while true; do
     esac
 done
 
-if [ -d linux ]; then
-    rm -rf linux/
-fi
+#if [ -d linux ]; then
+#    rm -rf linux/
+#fi
 
-is_tgz=$(file ${TESTING_KERNEL} | grep -c "gzip compressed data")
-if [ $is_tgz -eq 1 ];then
-    tar -zxf ${TESTING_KERNEL} && mv linux-* linux
-else
-    unzip -qq ${TESTING_KERNEL} -d linux
-fi
+#is_tgz=$(file ${TESTING_KERNEL} | grep -c "gzip compressed data")
+#if [ $is_tgz -eq 1 ];then
+#    tar -zxf ${TESTING_KERNEL} && mv linux-* linux
+#else
+#    unzip -qq ${TESTING_KERNEL/tar.gz/zip}
+#    mv kernel-openEuler* linux
+#fi
 
 pushd linux
 make allyesconfig

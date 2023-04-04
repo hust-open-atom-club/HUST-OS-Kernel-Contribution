@@ -9,7 +9,7 @@ import sys
 
 # Get real diff, ignore number line
 def get_real_diff(seq1:list,seq2:list):
-    exp = re.compile(r"^(?P<filename>.+?):(?P<linenumber>.+?)\s(?P<desc>.+?)(\(see line .+\))?$")
+    exp = re.compile(r"^(?P<filename>.+?):(?P<linenumber>.+?)\s(?P<desc>.+?)(\(see line .+\))?(on lines: .+?)?$")
     # pprint(seq1)
     # pprint(seq2)
     seq1_only = []
