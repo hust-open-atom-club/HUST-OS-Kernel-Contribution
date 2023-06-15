@@ -7,6 +7,12 @@
 # ignore kernel source code directory
 linux/
 
+# ignore copied smatch folder
+mainline/smatch/
+linux-next/smatch/
+
+
+
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
 

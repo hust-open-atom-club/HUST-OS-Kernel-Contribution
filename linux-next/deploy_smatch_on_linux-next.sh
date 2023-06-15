@@ -38,18 +38,24 @@ while true; do
 done
 
 if [ -d linux ]; then
-    rm -rf linux/
+    /bin/rm -rf linux/
 fi
 
 is_tgz=$(file ${TESTING_KERNEL} | grep -c "gzip compressed data")
 if [ $is_tgz -eq 1 ];then
     tar -zxf ${TESTING_KERNEL} && mv linux-* linux
 else
-    unzip -qq ${TESTING_KERNEL} -d linux
+    echo "Please provide tar.gz file"
+    exit -1;
 fi
+
+cp -r ../smatch .
+pushd smatch
+make
+popd
 
 pushd linux
 make allyesconfig
-../../smatch/smatch_scripts/build_kernel_data.sh
-../../smatch/smatch_scripts/test_kernel.sh
+../smatch/smatch_scripts/build_kernel_data.sh
+../smatch/smatch_scripts/test_kernel.sh
 popd
