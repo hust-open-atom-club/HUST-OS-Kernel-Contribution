@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#set -ex
+set -ex
 
 TESTING_KERNEL="kernel.tar.gz"
 
@@ -37,20 +37,25 @@ while true; do
     esac
 done
 
-#if [ -d linux ]; then
-#    rm -rf linux/
-#fi
+if [ -d linux ]; then
+    /bin/rm -rf linux/
+fi
 
-#is_tgz=$(file ${TESTING_KERNEL} | grep -c "gzip compressed data")
-#if [ $is_tgz -eq 1 ];then
-#    tar -zxf ${TESTING_KERNEL} && mv linux-* linux
-#else
-#    unzip -qq ${TESTING_KERNEL/tar.gz/zip}
-#    mv kernel-openEuler* linux
-#fi
+is_tgz=$(file ${TESTING_KERNEL} | grep -c "Zip archive data")
+if [ $is_tgz -eq 1 ];then
+    tar -zxf ${TESTING_KERNEL} && mv kernel-* linux
+else
+    echo "Please provide zip file"
+    exit -1;
+fi
+
+cp -r ../smatch .
+pushd smatch
+make
+popd
 
 pushd linux
 make allyesconfig
-../../smatch/smatch_scripts/build_kernel_data.sh
-../../smatch/smatch_scripts/test_kernel.sh
+../smatch/smatch_scripts/build_kernel_data.sh
+../smatch/smatch_scripts/test_kernel.sh
 popd
