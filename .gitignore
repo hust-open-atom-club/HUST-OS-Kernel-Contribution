@@ -5,13 +5,15 @@
 *.tar.gz
 
 # ignore kernel source code directory
-linux/
-
 # ignore copied smatch folder
 mainline/smatch/
+mainline/linux-master/
 linux-next/smatch/
+linux-next/linux-next-master/
 wireless-next/smatch/
+wireless-next/wireless-next-main/
 openeuler/smatch/
+openeuler/kernel-openEuler-22.03-LTS-SP2/
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
