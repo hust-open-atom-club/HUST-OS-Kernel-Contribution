@@ -10,8 +10,8 @@ linux/
 # ignore copied smatch folder
 mainline/smatch/
 linux-next/smatch/
-
-
+wireless-next/smatch/
+openeuler/smatch/
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
