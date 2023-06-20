@@ -2,60 +2,41 @@
 
 set -ex
 
-TESTING_KERNEL="kernel.tar.gz"
 
-# Display help function
-display_help() {
-    echo "Usage: $0 [option...] " >&2
-    echo
-    echo "   -f, --file                 Provide the source code of testing kernel"
-    echo "   -h, --help                 Display help message"
-    echo
-}
-
-while true; do
-    if [ $# -eq 0 ];then
-	#echo $#
-	break
-    fi
-    case "$1" in
-        -h | --help)
-            display_help
-            exit 0
-            ;;
-        -f | --file)
-	    TESTING_KERNEL=$2
-            shift 2
-            ;;
-        -*)
-            echo "Error: Unknown option: $1" >&2
-            exit 1
-            ;;
-        *)  # No more options
-            break
-            ;;
-    esac
-done
+REPO_NAME="openEuler-22.03-LTS-SP2"
+TESTING_KERNEL="${REPO_NAME}.zip"
+DOWNLOAD_URL="https://gitee.com/openeuler/kernel/repository/archive/openEuler-22.03-LTS-SP2.zip"
 
 if [ -d linux ]; then
     /bin/rm -rf linux/
 fi
 
-is_tgz=$(file ${TESTING_KERNEL} | grep -c "Zip archive data")
-if [ $is_tgz -eq 1 ];then
-    tar -zxf ${TESTING_KERNEL} && mv kernel-* linux
+if [ -d smatch ]; then
+    /bin/rm -rf smatch/
+fi
+
+wget $DOWNLOAD_URL -O ${TESTING_KERNEL}
+
+# simply check file format
+is_tgz=$(file ${TESTING_KERNEL} | grep -c "gzip compressed data")
+if [ $is_tgz -eq 1 ]; then
+    unzip ${TESTING_KERNEL}
 else
-    echo "Please provide zip file"
+    echo "${TESTING_KERNEL} is corrupted"
     exit -1;
 fi
 
-cp -r ../smatch .
+cp -r ../smatch ${PWD}/
+
 pushd smatch
-make
+make -j8
 popd
 
-pushd linux
-make allyesconfig
+pushd kernel-${REPO_NAME}
+# allyesconfig does not work
+# make allyesconfig
+cp ../config .config
 ../smatch/smatch_scripts/build_kernel_data.sh
-../smatch/smatch_scripts/test_kernel.sh
+#../smatch/smatch_scripts/test_kernel.sh
+../smatch_smatch_scripts/kchecker drivers/net/wireless
 popd
