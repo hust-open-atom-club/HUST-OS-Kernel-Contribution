@@ -6,7 +6,7 @@ REPO_NAME="linux-next-master"
 TESTING_KERNEL="${REPO_NAME}.tar.gz"
 DOWNLOAD_URL="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/snapshot/linux-next-master.tar.gz"
 
-if [ -d linux ]; then
+if [ -d ${TESTING_KERNEL} ]; then
     /bin/rm -rf linux/
 fi
 
@@ -35,5 +35,5 @@ pushd ${REPO_NAME}
 make allyesconfig
 ../smatch/smatch_scripts/build_kernel_data.sh
 #../smatch/smatch_scripts/test_kernel.sh
-../smatch_smatch_scripts/kchecker drivers/net/wireless
+#../smatch_smatch_scripts/kchecker drivers/net/wireless
 popd

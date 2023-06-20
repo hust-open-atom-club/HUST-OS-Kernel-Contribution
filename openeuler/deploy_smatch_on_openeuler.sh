@@ -18,8 +18,8 @@ fi
 wget $DOWNLOAD_URL -O ${TESTING_KERNEL}
 
 # simply check file format
-is_tgz=$(file ${TESTING_KERNEL} | grep -c "gzip compressed data")
-if [ $is_tgz -eq 1 ]; then
+is_zip=$(file ${TESTING_KERNEL} | grep -c "Zip archive data")
+if [ $is_zip -eq 1 ]; then
     unzip ${TESTING_KERNEL}
 else
     echo "${TESTING_KERNEL} is corrupted"
@@ -38,5 +38,5 @@ pushd kernel-${REPO_NAME}
 cp ../config .config
 ../smatch/smatch_scripts/build_kernel_data.sh
 #../smatch/smatch_scripts/test_kernel.sh
-../smatch_smatch_scripts/kchecker drivers/net/wireless
+#../smatch_smatch_scripts/kchecker drivers/net/wireless
 popd

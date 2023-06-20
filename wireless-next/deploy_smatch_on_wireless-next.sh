@@ -35,5 +35,5 @@ pushd ${REPO_NAME}
 make allyesconfig
 ../smatch/smatch_scripts/build_kernel_data.sh
 #../smatch/smatch_scripts/test_kernel.sh
-../smatch_smatch_scripts/kchecker drivers/net/wireless
+#../smatch_smatch_scripts/kchecker drivers/net/wireless
 popd
