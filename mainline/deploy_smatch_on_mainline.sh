@@ -6,7 +6,7 @@ REPO_NAME="linux-master"
 TESTING_KERNEL="${REPO_NAME}.tar.gz"
 DOWNLOAD_URL="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/snapshot/linux-master.tar.gz"
 
-if [ -d linux ]; then
+if [ -d ${REPO_NAME} ]; then
     /bin/rm -rf linux/
 fi
 
