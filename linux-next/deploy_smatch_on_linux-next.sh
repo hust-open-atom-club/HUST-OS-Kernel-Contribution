@@ -6,7 +6,7 @@ REPO_NAME="linux-next-master"
 TESTING_KERNEL="${REPO_NAME}.tar.gz"
 DOWNLOAD_URL="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/snapshot/linux-next-master.tar.gz"
 
-if [ -d ${TESTING_KERNEL} ]; then
+if [ -d ${REPO_NAME} ]; then
     /bin/rm -rf linux/
 fi
 
