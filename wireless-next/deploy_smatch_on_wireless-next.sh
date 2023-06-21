@@ -6,7 +6,7 @@ REPO_NAME="wireless-next-main"
 TESTING_KERNEL="${REPO_NAME}.tar.gz"
 DOWNLOAD_URL="https://git.kernel.org/pub/scm/linux/kernel/git/wireless/wireless-next.git/snapshot/wireless-next-main.tar.gz"
 
-if [ -d linux ]; then
+if [ -d ${REPO_NAME} ]; then
     /bin/rm -rf linux/
 fi
 
