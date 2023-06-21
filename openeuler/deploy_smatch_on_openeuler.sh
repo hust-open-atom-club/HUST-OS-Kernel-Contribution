@@ -7,8 +7,8 @@ REPO_NAME="openEuler-22.03-LTS-SP2"
 TESTING_KERNEL="${REPO_NAME}.zip"
 DOWNLOAD_URL="https://gitee.com/openeuler/kernel/repository/archive/openEuler-22.03-LTS-SP2.zip"
 
-if [ -d linux ]; then
-    /bin/rm -rf linux/
+if [ -d kernel-${REPO_NAME} ]; then
+    /bin/rm -rf kernel-${REPO_NAME}
 fi
 
 if [ -d smatch ]; then

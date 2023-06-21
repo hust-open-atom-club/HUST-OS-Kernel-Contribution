@@ -7,7 +7,7 @@ TESTING_KERNEL="${REPO_NAME}.tar.gz"
 DOWNLOAD_URL="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/snapshot/linux-next-master.tar.gz"
 
 if [ -d ${REPO_NAME} ]; then
-    /bin/rm -rf linux/
+    /bin/rm -rf ${REPO_NAME}
 fi
 
 if [ -d smatch ]; then
