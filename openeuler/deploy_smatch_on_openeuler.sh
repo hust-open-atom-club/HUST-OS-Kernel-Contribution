@@ -33,8 +33,15 @@ make -j8
 popd
 
 pushd kernel-${REPO_NAME}
-# allyesconfig does not work
+# openeuler: allyesconfig does not work, so we choose to an existing config
+if [ -e ../config ]; then
+    cp ../config .config
+    make oldconfig
+else
+    make allyesconfig
+fi
 # make allyesconfig
+# TODO: add a logic to verify if there exists a config file
 cp ../config .config
 ../smatch/smatch_scripts/build_kernel_data.sh
 #../smatch/smatch_scripts/test_kernel.sh
