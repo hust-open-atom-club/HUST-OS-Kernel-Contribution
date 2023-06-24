@@ -40,9 +40,6 @@ if [ -e ../config ]; then
 else
     make allyesconfig
 fi
-# make allyesconfig
-# TODO: add a logic to verify if there exists a config file
-cp ../config .config
 ../smatch/smatch_scripts/build_kernel_data.sh
 #../smatch/smatch_scripts/test_kernel.sh
 #../smatch_smatch_scripts/kchecker drivers/net/wireless
