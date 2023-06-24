@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -ex
+
+REPO="mainline"
+
+if [ $# -ne 1 ]; then
+	echo "Need a directory to show the upated fuzzing instance"
+	exit 0
+fi
+
+case $1 in
+	mainline*)
+		REPO="mainline"
+		;;
+	linux-next*)
+		REPO="linux-next"
+		;;
+	openeuler*)
+		REPO="openeuler"
+		;;
+	wireless-next*)
+		REPO="wireless-next"
+		;;
+	*)
+		echo "No such repository"
+		exit -1
+esac
+
+echo $kernel
+
+# update kernel repositories
+pushd ${REPO_NAME}
+./deploy_smatch_on_*.sh
+popd
