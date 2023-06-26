@@ -30,6 +30,6 @@ esac
 echo $kernel
 
 # update kernel repositories
-pushd ${REPO_NAME}
+pushd ${REPO}
 ./deploy_smatch_on_*.sh
 popd
