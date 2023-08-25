@@ -5,7 +5,11 @@ set -ex
 REPO="mainline"
 
 if [ $# -ne 1 ]; then
-	echo "Need a directory to show the upated fuzzing instance"
+	echo "Please provide a repository to update the testing instance!"
+	echo "The supported repositories are as follows:"
+	echo "  - mainline"
+	echo "  - linux-next"
+	echo "  - openeuler"
 	exit 0
 fi
 
@@ -19,11 +23,8 @@ case $1 in
 	openeuler*)
 		REPO="openeuler"
 		;;
-	wireless-next*)
-		REPO="wireless-next"
-		;;
 	*)
-		echo "No such repository"
+		echo "No such kernel repository"
 		exit -1
 esac
 

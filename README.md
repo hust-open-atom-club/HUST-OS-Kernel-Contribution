@@ -1,18 +1,21 @@
 # HUST-OS-Kernel-Contribution
 
-### Introduction
+## Introduction
 HUST OS Kernel Contribution Team
 
 ### Testing Kernel with Smatch
 
-Refer to the step-by-step guidance[1] to run smatch over the mainline kernel.
-
-Or directly run the deploy script in the mainline or linux-next to deploy automatically.
+Run smatch over linux kernel mainline, linux-next, and openeuler kernel repositories.
 
 ```
-cd mainline
-wget https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/snapshot/linux-6.3-rc4.tar.gz -O kernel.tar.gz
-./deploy_smatch_on_mainline.sh
+./update_kernel_repo mainline
+
+./update_kernel_repo linux-next
+
+./update_kernel_repo openeuler
+
 ```
+
+## References
 
 [1] <https://mudongliang.github.io/2022/03/16/run-smatch-over-mainline-kernel.html>
