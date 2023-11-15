@@ -32,7 +32,14 @@ make -j8
 popd
 
 pushd ${REPO_NAME}
-make allyesconfig
+# if allyesconfig does not work, choose to an existing config
+if [ -e ../config ]; then
+	cp ../config .config
+	make oldconfig
+else
+	make allyesconfig
+fi
+
 ../smatch/smatch_scripts/build_kernel_data.sh
 #../smatch/smatch_scripts/test_kernel.sh
 #../smatch_smatch_scripts/kchecker drivers/net/wireless
