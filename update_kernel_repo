@@ -30,7 +30,12 @@ esac
 
 echo $kernel
 
-# update kernel repositories
+# update the smatch repository
+pushd smatch
+git pull
+popd
+
+# update the testing kernel and run smatch
 pushd ${REPO}
 ./deploy_smatch_on_*.sh
 popd
