@@ -1,6 +1,7 @@
 # HUST-OS-Kernel-Contribution
 
 ## Introduction
+
 HUST OS Kernel Contribution Team
 
 ### Testing Kernel with Smatch
@@ -13,8 +14,9 @@ Run smatch over linux kernel mainline, linux-next, and openeuler kernel reposito
 ./update_kernel_repo linux-next
 
 ./update_kernel_repo openeuler
-
 ```
+
+If you would like to update smatch, directly `cd` to the smatch folder and do `git pull`.
 
 ## References
 
