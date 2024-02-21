@@ -36,11 +36,12 @@ pushd ${REPO_NAME}
 if [ -e ../config ]; then
 	cp ../config .config
 	make oldconfig
+	cp .config ../config
 else
 	make allyesconfig
 fi
 
 ../smatch/smatch_scripts/build_kernel_data.sh
-#../smatch/smatch_scripts/test_kernel.sh
+../smatch/smatch_scripts/test_kernel.sh
 #../smatch/smatch_scripts/kchecker drivers/net/wireless
 popd
