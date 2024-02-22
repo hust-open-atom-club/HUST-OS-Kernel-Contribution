@@ -491,7 +491,7 @@ kernel/sched/fair.c:6825 select_idle_sibling() error: uninitialized symbol 'task
 kernel/sched/cpufreq_schedutil.c:787 sugov_init() warn: Calling kobject_put|get with state->initialized unset from line: 765
 kernel/sched/membarrier.c:219 membarrier_private_expedited() warn: potential spectre issue '__per_cpu_offset' [w] (local cap)
 kernel/sched/bpf_topology.c:51 ____bpf_init_cpu_topology() error: 'topo' dereferencing possible ERR_PTR()
-kernel/sched/completion.c:157 wait_for_completion_timeout() error: 'wait_for_common()' returns negative and '__fake_return_0x7fd218d75e50' is unsigned
+kernel/sched/completion.c:157 wait_for_completion_timeout() error: 'wait_for_common()' returns negative and '__fake_return_0x7fdd6d3bde50' is unsigned
 kernel/sched/core.c:8642 sched_create_group() warn: Please consider using kmem_cache_zalloc instead of kmem_cache_alloc
 kernel/cgroup/rdma.c:380 parse_resource() warn: missing error code? 'i'
 kernel/cgroup/rdma.c:384 parse_resource() warn: missing error code? 'i'
@@ -572,7 +572,7 @@ kernel/bpf/btf.c:2561 btf_array_check_member() error: uninitialized symbol 'arra
 kernel/bpf/btf.c:4970 btf_distill_func_proto() error: uninitialized symbol 't'.
 kernel/bpf/btf.c:4986 btf_distill_func_proto() error: uninitialized symbol 't'.
 kernel/bpf/ringbuf.c:95 bpf_ringbuf_area_alloc() warn: Please consider using kzalloc_node instead of kmalloc_node
-kernel/bpf/ringbuf.c:168 ringbuf_map_alloc() warn: impossible condition '(attr->max_entries > (((1 << 24) - 2 - ($expr_0x7f1b56f1f5c0(30) >> 12)) * ((1) << 12))) => (0-u32max > 68719464448)'
+kernel/bpf/ringbuf.c:168 ringbuf_map_alloc() warn: impossible condition '(attr->max_entries > (((1 << 24) - 2 - ($expr_0x7f3bc0a4f5c0(30) >> 12)) * ((1) << 12))) => (0-u32max > 68719464448)'
 kernel/locking/rtmutex.c:1202 rt_mutex_handle_deadlock() warn: sleeping in atomic context
 kernel/locking/locktorture.c:690 __torture_print_stats() error: we previously assumed 'statp' could be null (see line 685)
 kernel/kthread.c:411 __kthread_create_on_node() warn: '&create->list' not removed from list
@@ -823,8 +823,8 @@ lib/test_overflow.c:343 test_overflow_shift() warn: unsigned '-1' is never less 
 lib/test_overflow.c:344 test_overflow_shift() warn: unsigned '-1' is never less than zero.
 lib/test_overflow.c:345 test_overflow_shift() warn: unsigned '-1' is never less than zero.
 lib/test_overflow.c:346 test_overflow_shift() warn: unsigned '-1' is never less than zero.
-lib/test_overflow.c:347 test_overflow_shift() parse error: turning off implications after 60 seconds
 lib/test_overflow.c:347 test_overflow_shift() warn: unsigned '-1' is never less than zero.
+lib/test_overflow.c:348 test_overflow_shift() parse error: turning off implications after 60 seconds
 lib/test_overflow.c:348 test_overflow_shift() warn: unsigned '-1' is never less than zero.
 lib/test_overflow.c:352 test_overflow_shift() warn: unsigned '-1' is never less than zero.
 lib/test_overflow.c:353 test_overflow_shift() warn: unsigned '-1' is never less than zero.
@@ -1165,7 +1165,6 @@ fs/ext4/namei.c:1820 ext4_get_parent() error: uninitialized symbol 'de'.
 fs/ext4/namei.c:3243 ext4_rmdir() error: uninitialized symbol 'de'.
 fs/ext4/namei.c:3324 __ext4_unlink() error: uninitialized symbol 'de'.
 fs/ext4/namei.c:3783 ext4_find_delete_entry() error: uninitialized symbol 'de'.
-fs/ext4/super.c:5041 ext4_fill_super() parse error: turning off implications after 60 seconds
 fs/inode.c:246 alloc_inode() error: dereferencing freed memory 'inode'
 fs/inode.c:287 destroy_inode() error: dereferencing freed memory 'inode'
 fs/nilfs2/gcinode.c:103 nilfs_gccache_submit_read_data() error: dereferencing freed memory 'bh'
@@ -1208,7 +1207,8 @@ fs/btrfs/extent-tree.c:5048 do_walk_down() warn: missing unwind goto?
 fs/btrfs/ioctl.c:890 create_snapshot() warn: '&pending_snapshot->list' not removed from list
 fs/btrfs/volumes.c:1282 open_fs_devices() error: we previously assumed 'latest_dev' could be null (see line 1270)
 fs/btrfs/reflink.c:529 btrfs_clone() error: uninitialized symbol 'trans'.
-fs/btrfs/tests/inode-tests.c:818 test_btrfs_get_extent() parse error: Function too hairy.  Giving up. 25 seconds
+fs/btrfs/tests/inode-tests.c:818 test_btrfs_get_extent() warn: Function too hairy.  No more merges.
+fs/btrfs/tests/inode-tests.c:818 test_btrfs_get_extent() parse error: Function too hairy.  Giving up. 27 seconds
 fs/btrfs/disk-io.c:319 btrfs_check_super_csum() error: crypto_shash_digest() 'result' too small (32 vs 4064)
 fs/btrfs/disk-io.c:3615 write_dev_supers() error: crypto_shash_digest() 'sb->csum' too small (32 vs 4064)
 fs/btrfs/extent_io.c:1466 lock_extent_bits() error: uninitialized symbol 'failed_start'.
@@ -1242,7 +1242,7 @@ fs/cifs/dir.c:440 cifs_do_create() error: we previously assumed 'newinode' could
 fs/cifs/readdir.c:550 cifs_fill_dirent_unix() error: strnlen() 'de->name' too small (1 vs 4096)
 fs/cifs/connect.c:2134 cifs_parse_mount_options() warn: inconsistent indenting
 fs/cifs/connect.c:2312 cifs_parse_mount_options() warn: Function too hairy.  No more merges.
-fs/cifs/connect.c:2312 cifs_parse_mount_options() parse error: Function too hairy.  Giving up. 29 seconds
+fs/cifs/connect.c:2312 cifs_parse_mount_options() parse error: Function too hairy.  Giving up. 30 seconds
 fs/cifs/connect.c:3562 cifs_match_super() error: 'tlink' dereferencing possible ERR_PTR()
 fs/cifs/connect.c:4796 cifs_mount() error: we previously assumed 'tcon' could be null (see line 4762)
 fs/cifs/connect.c:5475 cifs_tree_connect() error: uninitialized symbol 'rc'.
@@ -1282,7 +1282,7 @@ fs/squashfs/file.c:334 read_blocklist() error: uninitialized symbol 'offset'.
 fs/squashfs/file.c:361 read_blocklist() error: uninitialized symbol 'size'.
 fs/squashfs/id.c:52 squashfs_get_id() error: uninitialized symbol 'disk_id'.
 fs/squashfs/super.c:371 squashfs_fill_super() warn: Function too hairy.  No more merges.
-fs/squashfs/super.c:371 squashfs_fill_super() parse error: Function too hairy.  Giving up. 20 seconds
+fs/squashfs/super.c:371 squashfs_fill_super() parse error: Function too hairy.  Giving up. 14 seconds
 fs/char_dev.c:296 __register_chrdev() warn: Calling kobject_put|get with state->initialized unset from line: 280
 fs/char_dev.c:597 cdev_del() warn: Calling kobject_put|get with state->initialized unset from line: 594
 fs/char_dev.c:597 cdev_del() warn: Calling kobject_put|get with state->initialized unset from line: 594
@@ -1316,7 +1316,7 @@ fs/ceph/addr.c:1030 ceph_writepages_start() warn: potentially one past the end o
 fs/ceph/addr.c:2051 __ceph_pool_perm_get() error: we previously assumed 'pool_ns' could be null (see line 2040)
 ./include/linux/ceph/string_table.h:46 ceph_compare_string() error: we previously assumed 'cs' could be null (see line 41)
 fs/ksmbd/smb2pdu.c:557 smb2_allocate_rsp_buf() warn: Please consider using kvzalloc instead of kvmalloc
-fs/ksmbd/smb2pdu.c:3150 smb2_open() parse error: Function too hairy.  Giving up. 14 seconds
+fs/ksmbd/smb2pdu.c:3150 smb2_open() parse error: Function too hairy.  Giving up. 15 seconds
 fs/ksmbd/smb2pdu.c:6155 smb2_read_pipe() warn: Please consider using kvzalloc instead of kvmalloc
 fs/ksmbd/smb2pdu.c:6307 smb2_read() warn: Please consider using kvzalloc instead of kvmalloc
 fs/ksmbd/smb2pdu.c:6460 smb2_write_rdma_channel() warn: Please consider using kvzalloc instead of kvmalloc
@@ -1377,7 +1377,7 @@ fs/ntfs3/fsntfs.c:1228 ntfs_read_run_nb() error: uninitialized symbol 'idx'.
 fs/ntfs3/fsntfs.c:1417 ntfs_write_bh() warn: potential spectre issue 'rhdr' [w] (local cap)
 fs/ntfs3/fslog.c:2195 last_log_lsn() warn: possible memory leak of 'page_bufs'
 fs/ntfs3/fslog.c:2240 last_log_lsn() warn: Function too hairy.  No more merges.
-fs/ntfs3/fslog.c:2240 last_log_lsn() parse error: Function too hairy.  Giving up. 26 seconds
+fs/ntfs3/fslog.c:2240 last_log_lsn() parse error: Function too hairy.  Giving up. 25 seconds
 fs/ntfs3/fslog.c:4481 log_replay() warn: Function too hairy.  No more merges.
 fs/ntfs3/fslog.c:4481 log_replay() parse error: Function too hairy.  Giving up. 13 seconds
 fs/ntfs3/file.c:605 ntfs_fallocate() error: uninitialized symbol 'frame_size'.
@@ -1708,7 +1708,6 @@ fs/xfs/xfs_mru_cache.c:273 _xfs_mru_cache_reap() warn: can 'mru' even be NULL?
 fs/xfs/xfs_error.c:307 xfs_errortag_add() warn: potential spectre issue 'xfs_errortag_random_default' [r] (local cap)
 fs/xfs/xfs_qm.c:949 xfs_qm_reset_dqcounts_all() error: uninitialized symbol 'bp'.
 drivers/visorbus/visorchipset.c:718 visorbus_device_create() error: double free of 'dev_info'
-drivers/char/ipmi/ipmi_msghandler.c:3500 ipmi_add_smi() parse error: turning off implications after 60 seconds
 drivers/char/ipmi/ipmi_msghandler.c:4715 ipmi_timeout_handler() error: dereferencing freed memory 'intf'
 drivers/char/ipmi/ipmi_ssif.c:784 msg_done_handler() error: we previously assumed 'data' could be null (see line 759)
 drivers/char/ipmi/ipmi_ssif.c:1762 ssif_probe() error: uninitialized symbol 'len'.
@@ -2072,7 +2071,7 @@ drivers/net/wireless/intersil/hostap/hostap_80211_rx.c:800 hostap_80211_rx() war
 drivers/net/wireless/intersil/hostap/hostap_80211_rx.c:980 hostap_80211_rx() warn: possible spectre second half.  'crypt'
 drivers/net/wireless/intersil/hostap/hostap_80211_rx.c:1022 hostap_80211_rx() error: dereferencing freed memory 'skb'
 drivers/net/wireless/intersil/hostap/hostap_80211_rx.c:1068 hostap_80211_rx() warn: Function too hairy.  No more merges.
-drivers/net/wireless/intersil/hostap/hostap_80211_rx.c:1069 hostap_80211_rx() parse error: Function too hairy.  Giving up. 31 seconds
+drivers/net/wireless/intersil/hostap/hostap_80211_rx.c:1069 hostap_80211_rx() parse error: Function too hairy.  Giving up. 19 seconds
 drivers/net/wireless/intersil/hostap/hostap_ap.c:899 hostap_free_data() warn: inconsistent indenting
 drivers/net/wireless/intersil/hostap/hostap_ap.c:1321 handle_authen() warn: potential spectre issue 'local->crypt_info.crypt' [r]
 drivers/net/wireless/intersil/hostap/hostap_ap.c:1342 handle_authen() warn: possible spectre second half.  'crypt'
@@ -2136,7 +2135,8 @@ drivers/net/wireless/mediatek/mt76/mt7915/mcu.c:440 mt7915_mcu_tx_rate_cal() war
 drivers/net/wireless/mediatek/mt76/mt7915/mcu.c:524 mt7915_mcu_tx_rate_report() warn: potential spectre issue 'dev->mt76.wcid' [w] (local cap)
 drivers/net/wireless/mediatek/mt76/mt7915/mcu.c:2757 mt7915_load_ram() error: dereferencing freed memory 'fw'
 drivers/net/wireless/mediatek/mt7601u/phy.c:489 mt7601u_bbp_r47_get() warn: signedness bug returning '(-110)'
-drivers/net/wireless/rsi/rsi_91x_sdio.c:233 rsi_reset_card() error: uninitialized symbol 'resp'.
+drivers/net/wireless/rsi/rsi_91x_sdio.c:212 rsi_reset_card() warn: Function too hairy.  No more merges.
+drivers/net/wireless/rsi/rsi_91x_sdio.c:212 rsi_reset_card() parse error: Function too hairy.  Giving up. 29 seconds
 drivers/net/wireless/rsi/rsi_91x_mac80211.c:1136 rsi_mac80211_ampdu_action() error: buffer overflow 'common->vif_info' 3 <= 3 (assuming for loop doesn't break)
 drivers/net/wireless/rsi/rsi_91x_mac80211.c:1159 rsi_mac80211_ampdu_action() error: buffer overflow 'common->vif_info' 3 <= 3 (assuming for loop doesn't break)
 drivers/net/wireless/rsi/rsi_91x_mac80211.c:2085 rsi_mac80211_attach() warn: 'hw' from ieee80211_alloc_hw() not released on lines: 2039,2046,2083,2085.
@@ -2255,6 +2255,8 @@ drivers/net/bonding/bond_main.c:2176 bond_enslave() warn: Calling kobject_put|ge
 drivers/net/bonding/bond_alb.c:850 rlb_initialize() warn: returning -1 instead of -ENOMEM is sloppy
 drivers/net/macsec.c:2616 macsec_upd_offload() warn: missing error code 'ret'
 drivers/net/arcnet/arc-rimi.c:96 arcrimi_probe() warn: 'dev->mem_start' from __request_region() not released on lines: 96.
+drivers/net/wireguard/selftest/allowedips.c:660 wg_allowedips_selftest() warn: Function too hairy.  No more merges.
+drivers/net/wireguard/selftest/allowedips.c:660 wg_allowedips_selftest() parse error: Function too hairy.  Giving up. 28 seconds
 drivers/net/phy/phy_device.c:1667 phy_detach() error: we previously assumed 'phydev->attached_dev' could be null (see line 1661)
 drivers/net/phy/phy_device.c:2830 phy_probe() warn: inconsistent indenting
 drivers/net/can/sja1000/ems_pcmcia.c:250 ems_pcmcia_add_card() warn: 'card->base_addr' from ioremap() not released on lines: 250.
@@ -2556,7 +2558,7 @@ drivers/net/ethernet/marvell/octeontx2/af/cgx.c:556 cgx_fwi_cmd_send() warn: inc
   Unlocked on: 556
 drivers/net/ethernet/marvell/octeontx2/af/rvu_debugfs.c:337 rvu_dbg_is_valid_lf() warn: potential spectre issue 'block->fn_map' [r] (local cap)
 drivers/net/ethernet/marvell/octeontx2/af/rvu_debugfs.c:338 rvu_dbg_is_valid_lf() warn: possible spectre second half.  '*pcifunc'
-drivers/net/ethernet/marvell/octeontx2/af/rvu.c:1710 __rvu_mbox_handler() parse error: Function too hairy.  Giving up. 36 seconds
+drivers/net/ethernet/marvell/octeontx2/af/rvu.c:1710 __rvu_mbox_handler() parse error: Function too hairy.  Giving up. 22 seconds
 drivers/net/ethernet/marvell/octeontx2/nic/otx2_ptp.c:172 otx2_ptp_init() warn: 'ptp_ptr->ptp_clock' is an error pointer or valid
 drivers/net/ethernet/marvell/octeontx2/nic/otx2_ethtool.c:264 otx2_get_pauseparam() error: 'rsp' dereferencing possible ERR_PTR()
 drivers/net/ethernet/broadcom/b44.c:349 b44_phy_reset() error: uninitialized symbol 'val'.
@@ -2687,7 +2689,7 @@ drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c:4649 i40e_ndo_set_vf_spoofchk
 drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c:4712 i40e_ndo_set_vf_trust() warn: potential spectre issue 'pf->vf' [r] (local cap)
 drivers/net/ethernet/intel/i40e/i40e_main.c:5765 i40e_set_bw_limit() warn: error code type promoted to positive: 'speed'
 drivers/net/ethernet/intel/i40e/i40e_main.c:9858 i40e_get_capabilities() warn: Function too hairy.  No more merges.
-drivers/net/ethernet/intel/i40e/i40e_main.c:9858 i40e_get_capabilities() parse error: Function too hairy.  Giving up. 19 seconds
+drivers/net/ethernet/intel/i40e/i40e_main.c:9858 i40e_get_capabilities() parse error: Function too hairy.  Giving up. 11 seconds
 drivers/net/ethernet/intel/i40e/i40e_main.c:12859 i40e_queue_pair_toggle_rings() warn: missing error code? 'ret'
 drivers/net/ethernet/intel/i40e/i40e_main.c:13631 i40e_vsi_setup_vectors() warn: missing error code? 'ret'
 drivers/net/ethernet/intel/i40e/i40e_debugfs.c:581 i40e_dbg_dump_desc() warn: potential spectre issue 'vsi->rx_rings' [r] (local cap)
@@ -2718,8 +2720,7 @@ drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.c:3353 cxgb4_mgmt_set_vf_rate() wa
 drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.c:3406 cxgb4_mgmt_set_vf_vlan() warn: potential spectre issue 'adap->vfinfo' [w] (local cap)
 drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.c:3454 cxgb4_mgmt_set_vf_link_state() warn: potential spectre issue 'adap->vfinfo' [w] (local cap)
 drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.c:5424 adap_init0() warn: Function too hairy.  No more merges.
-drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.c:5424 adap_init0() parse error: Function too hairy.  Giving up. 40 seconds
-drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.c:7104 init_one() parse error: turning off implications after 60 seconds
+drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.c:5424 adap_init0() parse error: Function too hairy.  Giving up. 20 seconds
 drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.c:1694 cudbg_collect_tp_indirect() error: buffer overflow 't5_tp_pio_array' 11 <= 20
 drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.c:1695 cudbg_collect_tp_indirect() error: buffer overflow 't5_tp_pio_array' 11 <= 20
 drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.c:1696 cudbg_collect_tp_indirect() error: buffer overflow 't5_tp_pio_array' 11 <= 20
@@ -3049,7 +3050,7 @@ drivers/mmc/host/mtk-sd.c:1943 msdc_tune_response() error: uninitialized symbol 
 drivers/mmc/host/mtk-sd.c:2042 hs400_tune_response() error: uninitialized symbol 'cmd_err'.
 drivers/mmc/host/mtk-sd.c:2442 msdc_drv_probe() warn: missing unwind goto?
 drivers/mmc/host/sdhci.c:2426 sdhci_set_ios() warn: Function too hairy.  No more merges.
-drivers/mmc/host/sdhci.c:2426 sdhci_set_ios() parse error: Function too hairy.  Giving up. 39 seconds
+drivers/mmc/host/sdhci.c:2426 sdhci_set_ios() parse error: Function too hairy.  Giving up. 22 seconds
 drivers/mmc/host/sdhci.c:4715 sdhci_setup_host() error: 'mmc->supply.vqmmc' dereferencing possible ERR_PTR()
 drivers/mmc/host/usdhi6rol0.c:1324 usdhi6_blk_write() error: uninitialized symbol 'd'.
 drivers/mmc/host/usdhi6rol0.c:1702 usdhi6_timeout_work() error: we previously assumed 'mrq' could be null (see line 1676)
@@ -3201,7 +3202,6 @@ drivers/gpu/drm/radeon/rv770_dpm.c:1290 rv770_get_mvdd_pin_configuration() error
 drivers/gpu/drm/radeon/rv770_dpm.c:1292 rv770_get_mvdd_pin_configuration() error: uninitialized symbol 'gpio_pins'.
 drivers/gpu/drm/radeon/radeon_cs.c:96 radeon_cs_parser_relocs() warn: Please consider using kvcalloc instead of kvmalloc_array
 drivers/gpu/drm/radeon/radeon_device.c:677 radeon_card_posted() warn: inconsistent indenting
-drivers/gpu/drm/radeon/radeon_device.c:1492 radeon_device_init() parse error: turning off implications after 60 seconds
 drivers/gpu/drm/radeon/radeon_device.c:1518 radeon_device_init() warn: 'rdev->rmmio' from ioremap() not released on lines: 1518.
 drivers/gpu/drm/radeon/radeon_atombios.c:934 radeon_get_atom_connector_info_from_supported_devices_table() error: buffer overflow 'supported_devices->info.asConnInfo' 10 <= 15
 drivers/gpu/drm/radeon/radeon_atombios.c:2822 radeon_atombios_get_power_modes() error: we previously assumed 'rdev->pm.power_state' could be null (see line 2793)
@@ -3484,7 +3484,7 @@ drivers/gpu/drm/i915/gvt/dmabuf.c:362 pick_dmabuf_by_info() warn: can 'dmabuf_ob
 drivers/gpu/drm/i915/gvt/dmabuf.c:392 pick_dmabuf_by_num() warn: can 'dmabuf_obj' even be NULL?
 drivers/gpu/drm/i915/gem/i915_gem_object.h:130 __i915_gem_object_lock() error: we previously assumed 'ww' could be null (see line 122)
 drivers/gpu/drm/i915/gvt/handlers.c:2148 init_generic_mmio_info() warn: Function too hairy.  No more merges.
-drivers/gpu/drm/i915/gvt/handlers.c:2148 init_generic_mmio_info() parse error: Function too hairy.  Giving up. 22 seconds
+drivers/gpu/drm/i915/gvt/handlers.c:2148 init_generic_mmio_info() parse error: Function too hairy.  Giving up. 23 seconds
 drivers/gpu/drm/i915/gvt/vgpu.c:136 intel_gvt_init_vgpu_types() warn: replace divide condition 'low_avail / vgpu_types[i]->low_mm' with 'low_avail >= vgpu_types[i]->low_mm'
 drivers/gpu/drm/i915/gem/i915_gem_object.h:130 __i915_gem_object_lock() error: we previously assumed 'ww' could be null (see line 122)
 drivers/gpu/drm/i915/gem/i915_gem_object.h:130 __i915_gem_object_lock() error: we previously assumed 'ww' could be null (see line 122)
@@ -3698,8 +3698,6 @@ drivers/gpu/drm/amd/amdgpu/amdgpu_gem.c:935 amdgpu_debugfs_gem_info() warn: inco
   Unlocked on: 935
 drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c:914 amdgpu_vm_alloc_pts() warn: Please consider using kvcalloc instead of kvmalloc_array
 drivers/gpu/drm/amd/amdgpu/amdgpu_device.c:3547 amdgpu_device_init() warn: 'adev->rmmio' from ioremap() not released on lines: 3337,3343,3547.
-drivers/gpu/drm/amd/amdgpu/vcn_v2_5.c:540 vcn_v2_5_mc_resume_dpg_mode() parse error: turning off implications after 60 seconds
-drivers/gpu/drm/amd/amdgpu/vcn_v3_0.c:544 vcn_v3_0_mc_resume_dpg_mode() parse error: turning off implications after 60 seconds
 drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c:5096 gfx_v8_0_pre_soft_reset() warn: inconsistent indenting
 drivers/gpu/drm/amd/amdgpu/amdgpu_ids.c:480 amdgpu_vmid_alloc_reserved() warn: missing error code 'r'
 drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_fence.c:91 to_amdgpu_amdkfd_fence() warn: can 'fence' even be NULL?
@@ -3715,7 +3713,6 @@ drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.c:385 amdgpu_get_xgmi_hive() warn: Callin
 drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.c:409 amdgpu_xgmi_set_pstate() warn: ignoring unreachable code.
 drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:3795 gfx_v9_0_kcq_init_queue() warn: if statement not indented
 drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:3805 gfx_v9_0_kcq_init_queue() warn: if statement not indented
-drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:476 vcn_v2_0_mc_resume_dpg_mode() parse error: turning off implications after 60 seconds
 drivers/gpu/drm/amd/amdgpu/amdgpu_gfx.c:166 amdgpu_gfx_parse_disable_cu() warn: potential spectre issue 'mask' [w]
 drivers/gpu/drm/amd/amdgpu/amdgpu_vram_mgr.c:353 amdgpu_vram_mgr_new() warn: Please consider using kvcalloc instead of kvmalloc_array
 drivers/gpu/drm/amd/amdgpu/atom.c:313 atom_get_src_int() warn: ignoring unreachable code.
@@ -3803,73 +3800,73 @@ drivers/block/paride/on26.c:158 on26_test_port() warn: inconsistent indenting
 drivers/block/paride/on26.c:196 on26_read_block() warn: inconsistent indenting
 drivers/block/paride/on26.c:197 on26_read_block() warn: inconsistent indenting
 drivers/block/paride/on26.c:206 on26_read_block() warn: inconsistent indenting
-drivers/block/xen-blkfront.c:290 get_id_from_freelist() parse error: OOM: 3000664Kb sm_state_count = 12571
-drivers/block/xen-blkfront.c:290 get_id_from_freelist() parse error: Function too hairy.  Giving up. 80 seconds
-drivers/block/xen-blkfront.c:290 get_id_from_freelist() parse error: OOM: 3100480Kb sm_state_count = 3995
-drivers/block/xen-blkfront.c:290 get_id_from_freelist() parse error: Function too hairy.  Giving up. 76 seconds
-drivers/block/xen-blkfront.c:564 blkif_queue_discard_req() parse error: OOM: 4523236Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:290 get_id_from_freelist() parse error: OOM: 3001776Kb sm_state_count = 12466
+drivers/block/xen-blkfront.c:290 get_id_from_freelist() parse error: Function too hairy.  Giving up. 34 seconds
+drivers/block/xen-blkfront.c:290 get_id_from_freelist() parse error: OOM: 3100404Kb sm_state_count = 3868
+drivers/block/xen-blkfront.c:290 get_id_from_freelist() parse error: Function too hairy.  Giving up. 32 seconds
+drivers/block/xen-blkfront.c:564 blkif_queue_discard_req() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:564 blkif_queue_discard_req() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:606 blkif_setup_rw_req_grant() parse error: OOM: 4523236Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:606 blkif_setup_rw_req_grant() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:606 blkif_setup_rw_req_grant() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:695 blkif_setup_extra_req() parse error: OOM: 4523236Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:695 blkif_setup_extra_req() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:695 blkif_setup_extra_req() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:714 blkif_queue_rw_req() parse error: OOM: 4523236Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:714 blkif_queue_rw_req() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:714 blkif_queue_rw_req() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:880 blkif_queue_request() parse error: OOM: 4523236Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:880 blkif_queue_request() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:880 blkif_queue_request() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:912 blkif_queue_rq() parse error: OOM: 4523236Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:912 blkif_queue_rq() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:912 blkif_queue_rq() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:946 blkif_complete_rq() parse error: OOM: 4523368Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:946 blkif_complete_rq() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:946 blkif_complete_rq() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:956 blkif_set_queue_limits() parse error: OOM: 4523368Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:956 blkif_set_queue_limits() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:956 blkif_set_queue_limits() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:991 xlvbd_init_blk_queue() parse error: OOM: 4523368Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:991 xlvbd_init_blk_queue() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:991 xlvbd_init_blk_queue() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1033 flush_info() parse error: OOM: 4523368Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1033 flush_info() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1033 flush_info() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1043 xlvbd_flush() parse error: OOM: 4523368Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1043 xlvbd_flush() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1043 xlvbd_flush() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1055 xen_translate_vdev() parse error: OOM: 4523368Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1055 xen_translate_vdev() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1055 xen_translate_vdev() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1115 encode_disk_name() parse error: OOM: 4523368Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1115 encode_disk_name() parse error: OOM: 4550656Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1115 encode_disk_name() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1123 xlvbd_alloc_gendisk() parse error: OOM: 4523528Kb sm_state_count = 13
+drivers/block/xen-blkfront.c:1123 xlvbd_alloc_gendisk() parse error: OOM: 4550816Kb sm_state_count = 13
 drivers/block/xen-blkfront.c:1123 xlvbd_alloc_gendisk() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1310 blkif_free_ring() parse error: OOM: 4600304Kb sm_state_count = 2933
-drivers/block/xen-blkfront.c:1310 blkif_free_ring() parse error: Function too hairy.  Giving up. 39 seconds
-drivers/block/xen-blkfront.c:1374 blkif_free() parse error: OOM: 6324516Kb sm_state_count = 13
+drivers/block/xen-blkfront.c:1310 blkif_free_ring() parse error: OOM: 4600704Kb sm_state_count = 2816
+drivers/block/xen-blkfront.c:1310 blkif_free_ring() parse error: Function too hairy.  Giving up. 17 seconds
+drivers/block/xen-blkfront.c:1374 blkif_free() parse error: OOM: 6350144Kb sm_state_count = 13
 drivers/block/xen-blkfront.c:1374 blkif_free() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1401 blkif_copy_from_grant() parse error: OOM: 6324356Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1401 blkif_copy_from_grant() parse error: OOM: 6349984Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1401 blkif_copy_from_grant() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1420 blkif_rsp_to_req_status() parse error: OOM: 6324356Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1420 blkif_rsp_to_req_status() parse error: OOM: 6349984Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1420 blkif_rsp_to_req_status() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1437 blkif_get_final_status() parse error: OOM: 6324356Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1437 blkif_get_final_status() parse error: OOM: 6349984Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1437 blkif_get_final_status() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1456 blkif_completion() parse error: OOM: 6324356Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1456 blkif_completion() parse error: OOM: 6349984Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1456 blkif_completion() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1586 blkif_interrupt() parse error: OOM: 6324356Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1586 blkif_interrupt() parse error: OOM: 6349984Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1586 blkif_interrupt() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1754 setup_blkring() parse error: OOM: 6324356Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1754 setup_blkring() parse error: OOM: 6349984Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1754 setup_blkring() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1806 write_per_ring_nodes() parse error: OOM: 6324356Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1806 write_per_ring_nodes() parse error: OOM: 6349984Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1806 write_per_ring_nodes() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1850 free_info() parse error: OOM: 6324516Kb sm_state_count = 17
+drivers/block/xen-blkfront.c:1850 free_info() parse error: OOM: 6350144Kb sm_state_count = 17
 drivers/block/xen-blkfront.c:1850 free_info() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1863 talk_to_blkback() parse error: OOM: 6324516Kb sm_state_count = 7
+drivers/block/xen-blkfront.c:1863 talk_to_blkback() parse error: OOM: 6350144Kb sm_state_count = 7
 drivers/block/xen-blkfront.c:1863 talk_to_blkback() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:1995 negotiate_mq() parse error: OOM: 6324356Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:1995 negotiate_mq() parse error: OOM: 6349984Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:1995 negotiate_mq() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:2036 blkfront_probe() parse error: OOM: 6324356Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:2036 blkfront_probe() parse error: OOM: 6350152Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:2036 blkfront_probe() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:2107 blkif_recover() parse error: OOM: 6324516Kb sm_state_count = 7
+drivers/block/xen-blkfront.c:2107 blkif_recover() parse error: OOM: 6350312Kb sm_state_count = 7
 drivers/block/xen-blkfront.c:2107 blkif_recover() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:2160 blkfront_resume() parse error: OOM: 6324356Kb sm_state_count = 1
+drivers/block/xen-blkfront.c:2160 blkfront_resume() parse error: OOM: 6350152Kb sm_state_count = 1
 drivers/block/xen-blkfront.c:2160 blkfront_resume() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:2220 blkfront_closing() parse error: OOM: 6324516Kb sm_state_count = 5
+drivers/block/xen-blkfront.c:2220 blkfront_closing() parse error: OOM: 6350312Kb sm_state_count = 5
 drivers/block/xen-blkfront.c:2220 blkfront_closing() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:2257 blkfront_setup_discard() parse error: OOM: 6324516Kb sm_state_count = 7
+drivers/block/xen-blkfront.c:2257 blkfront_setup_discard() parse error: OOM: 6350312Kb sm_state_count = 7
 drivers/block/xen-blkfront.c:2257 blkfront_setup_discard() parse error: Function too hairy.  Giving up. 0 seconds
-drivers/block/xen-blkfront.c:2270 blkfront_setup_indirect() parse error: OOM: 6324356Kb sm_state_count = 3
+drivers/block/xen-blkfront.c:2270 blkfront_setup_indirect() parse error: OOM: 6350152Kb sm_state_count = 3
 drivers/block/xen-blkfront.c:2270 blkfront_setup_indirect() parse error: Function too hairy.  Giving up. 0 seconds
 drivers/block/pktcdvd.c:133 pkt_kobj_create() warn: Calling kobject_put|get with state->initialized unset from line: 127
 drivers/block/loop.c:752 loop_change_fd() warn: inconsistent returns '&loop_ctl_mutex'.
@@ -3894,8 +3891,8 @@ drivers/block/loop.c:1902 lo_open() warn: inconsistent returns '&loop_ctl_mutex'
 drivers/block/loop.c:2309 loop_control_ioctl() warn: inconsistent returns '&loop_ctl_mutex'.
   Locked on  : 2273
   Unlocked on: 2309
-drivers/block/xen-blkback/xenbus.c:230 xen_blkif_map() parse error: OOM: 3000500Kb sm_state_count = 31812
-drivers/block/xen-blkback/xenbus.c:230 xen_blkif_map() parse error: Function too hairy.  Giving up. 177 seconds
+drivers/block/xen-blkback/xenbus.c:230 xen_blkif_map() parse error: OOM: 3000544Kb sm_state_count = 54315
+drivers/block/xen-blkback/xenbus.c:230 xen_blkif_map() parse error: Function too hairy.  Giving up. 81 seconds
 drivers/block/null_blk/zoned.c:47 null_init_zoned_dev() warn: Please consider using kvcalloc instead of kvmalloc_array
 drivers/block/null_blk/main.c:1844 null_add_dev() warn: missing error code 'rv'
 drivers/block/floppy.c:2879 redo_fd_request() error: we previously assumed 'current_req' could be null (see line 2867)
@@ -4007,7 +4004,7 @@ drivers/video/fbdev/sis/sis_main.c:6161 sisfb_probe() warn: inconsistent indenti
 drivers/video/fbdev/sis/sis_main.c:6251 sisfb_probe() warn: argument 3 to %lx specifier is cast from pointer
 drivers/video/fbdev/sis/sis_main.c:6259 sisfb_probe() warn: argument 3 to %lx specifier is cast from pointer
 drivers/video/fbdev/sis/sis_main.c:6406 sisfb_probe() warn: Function too hairy.  No more merges.
-drivers/video/fbdev/sis/sis_main.c:6406 sisfb_probe() parse error: Function too hairy.  Giving up. 38 seconds
+drivers/video/fbdev/sis/sis_main.c:6406 sisfb_probe() parse error: Function too hairy.  Giving up. 22 seconds
 drivers/video/fbdev/sis/init.c:997 SiSRegInit() warn: the 'SIS_CRT2_PORT_04' macro might need parens
 drivers/video/fbdev/sis/init.c:998 SiSRegInit() warn: the 'SIS_CRT2_PORT_10' macro might need parens
 drivers/video/fbdev/sis/init.c:999 SiSRegInit() warn: the 'SIS_CRT2_PORT_12' macro might need parens
@@ -4105,7 +4102,6 @@ drivers/mtd/ubi/wl.c:1513 ubi_bitflip_check() warn: possible spectre second half
 drivers/mtd/ubi/wl.c:1546 ubi_bitflip_check() warn: possible spectre second half.  'e'
 drivers/mtd/ubi/eba.c:463 ubi_eba_unmap_leb() warn: potential spectre issue 'vol->eba_tbl->entries' [r]
 drivers/mtd/mtdchar.c:703 mtdchar_ioctl() warn: potential spectre issue 'mtd->eraseregions' [r] (local cap)
-drivers/mtd/mtdcore.c:884 mtd_device_parse_register() parse error: turning off implications after 60 seconds
 drivers/mtd/mtdconcat.c:231 concat_writev() warn: potentially one past the end of array 'vecs_copy[entry_high]'
 drivers/mtd/mtdconcat.c:231 concat_writev() warn: potentially one past the end of array 'vecs_copy[entry_high]'
 drivers/mtd/mtdconcat.c:232 concat_writev() warn: potentially one past the end of array 'vecs_copy[entry_high]'
@@ -4196,7 +4192,8 @@ drivers/misc/sgi-gru/grukdump.c:191 gru_dump_chiplet_request() warn: potential s
 drivers/misc/sram.c:397 sram_probe() warn: 'sram->clk' from clk_prepare_enable() not released on lines: 397.
 drivers/misc/altera-stapl/altera.c:183 altera_export_bool_array() error: buffer overflow 'string' 73 <= u32max
 drivers/misc/altera-stapl/altera.c:2090 altera_execute() error: testing array offset 'stack_ptr' after use.
-drivers/misc/altera-stapl/altera.c:2103 altera_execute() parse error: turning off implications after 60 seconds
+drivers/misc/altera-stapl/altera.c:509 altera_execute() warn: Function too hairy.  No more merges.
+drivers/misc/altera-stapl/altera.c:509 altera_execute() parse error: Function too hairy.  Giving up. 35 seconds
 drivers/misc/uacce/uacce.c:176 uacce_get_ss_dma() warn: potential spectre issue 'slice' [r] (local cap)
 drivers/misc/uacce/uacce.c:212 uacce_free_dma_buffers() warn: argument 4 to %lx specifier is cast from pointer
 drivers/cpuidle/sysfs.c:490 cpuidle_add_state_sysfs() warn: Calling kobject_put|get with state->initialized unset from line: 477
@@ -4287,7 +4284,7 @@ drivers/message/fusion/mptctl.c:2674 mptctl_hp_targetinfo() warn: potential spec
 drivers/message/fusion/mptscsih.c:766 mptscsih_io_done() warn: inconsistent indenting
 drivers/message/fusion/mptscsih.c:841 mptscsih_io_done() warn: inconsistent indenting
 drivers/message/fusion/mptbase.c:2510 mpt_do_ioc_recovery() warn: Function too hairy.  No more merges.
-drivers/message/fusion/mptbase.c:2510 mpt_do_ioc_recovery() parse error: Function too hairy.  Giving up. 26 seconds
+drivers/message/fusion/mptbase.c:2510 mpt_do_ioc_recovery() parse error: Function too hairy.  Giving up. 16 seconds
 drivers/message/fusion/mptbase.c:4338 initChainBuffers() warn: returning -1 instead of -ENOMEM is sloppy
 drivers/message/fusion/mptbase.c:4345 initChainBuffers() warn: returning -1 instead of -ENOMEM is sloppy
 drivers/message/fusion/mptbase.c:4412 initChainBuffers() warn: returning -1 instead of -ENOMEM is sloppy
@@ -4649,7 +4646,7 @@ drivers/staging/media/atomisp/pci/runtime/inputfifo/src/inputfifo.c:441 ia_css_i
 drivers/staging/media/atomisp/pci/runtime/inputfifo/src/inputfifo.c:507 ia_css_inputfifo_send_embedded_line() error: uninitialized symbol 'fmt_type'.
 drivers/staging/media/atomisp/pci/atomisp_compat_css20.c:1148 atomisp_css_start() warn: missing unwind goto?
 drivers/staging/media/atomisp/pci/atomisp_fops.c:546 atomisp_qbuffers_to_css() warn: Function too hairy.  No more merges.
-drivers/staging/media/atomisp/pci/atomisp_fops.c:546 atomisp_qbuffers_to_css() parse error: Function too hairy.  Giving up. 14 seconds
+drivers/staging/media/atomisp/pci/atomisp_fops.c:546 atomisp_qbuffers_to_css() parse error: Function too hairy.  Giving up. 15 seconds
 drivers/staging/media/atomisp/pci/atomisp_fops.c:882 atomisp_open() warn: variable dereferenced before check 'asd' (see line 785)
 drivers/staging/media/atomisp/pci/sh_css.c:888 sh_css_translate_stream_cfg_to_input_system_input_port_attr() error: uninitialized symbol 'fmt_type'.
 drivers/staging/media/atomisp/pci/sh_css.c:4142 ia_css_pipe_enqueue_buffer() warn: sizeof(NUMBER)?
@@ -5300,7 +5297,6 @@ drivers/nvme/target/fcloop.c:1104 fcloop_create_local_port() warn: possible memo
 drivers/nvme/target/configfs.c:508 nvmet_ns_ana_grpid_store() warn: potential spectre issue 'nvmet_ana_group_enabled' [w] (local cap)
 drivers/nvme/target/configfs.c:1438 nvmet_ana_groups_make_group() warn: potential spectre issue 'nvmet_ana_group_enabled' [w] (local cap)
 drivers/nvme/target/loop.c:608 nvme_loop_create_ctrl() warn: 'opts->queue_size - 1' 18446744073709551615 can't fit into 65535 'ctrl->ctrl.sqsize'
-drivers/nvme/target/loop.c:659 nvme_loop_create_ctrl() parse error: turning off implications after 60 seconds
 drivers/bus/qcom-ebi2.c:387 qcom_ebi2_probe() warn: 'ebi2clk' from clk_prepare_enable() not released on lines: 358.
 drivers/bus/qcom-ebi2.c:387 qcom_ebi2_probe() warn: 'ebi2xclk' from clk_prepare_enable() not released on lines: 358.
 drivers/bus/mhi/core/boot.c:170 mhi_download_rddm_img() error: uninitialized symbol 'rx_status'.
@@ -5308,6 +5304,9 @@ drivers/bus/mhi/core/boot.c:215 mhi_fw_load_amss() error: uninitialized symbol '
 drivers/bus/mhi/core/boot.c:269 mhi_fw_load_sbl() error: uninitialized symbol 'tx_status'.
 drivers/bus/fsl-mc/dprc-driver.c:675 dprc_setup() warn: unsigned 'minor_ver' is never less than zero.
 drivers/bus/fsl-mc/mc-io.c:198 fsl_mc_portal_allocate() warn: unsigned 'dpmcp_dev->obj_desc.ver_minor' is never less than zero.
+drivers/bluetooth/hci_ath.c:64 ath_wakeup_ar3k() warn: Function too hairy.  No more merges.
+drivers/bluetooth/hci_ath.c:64 ath_wakeup_ar3k() parse error: Function too hairy.  Giving up. 40 seconds
+drivers/bluetooth/hci_ath.c:64 ath_wakeup_ar3k() parse error: Function too hairy.  Giving up. 40 seconds
 drivers/bluetooth/hci_ag6xx.c:240 ag6xx_setup() error: dereferencing freed memory 'fw'
 drivers/bluetooth/btusb.c:2194 btusb_setup_intel() warn: inconsistent indenting
 drivers/bluetooth/btusb.c:4479 btusb_resume() warn: missing error code 'err'
@@ -5428,7 +5427,7 @@ drivers/usb/core/sysfs.c:1169 supports_autosuspend_show() warn: inconsistent ret
 drivers/usb/core/devio.c:1246 do_proc_bulk() error: uninitialized symbol 'len2'.
 drivers/usb/core/devio.c:1266 do_proc_bulk() error: uninitialized symbol 'len2'.
 drivers/usb/core/devio.c:1887 proc_do_submiturb() warn: Function too hairy.  No more merges.
-drivers/usb/core/devio.c:1887 proc_do_submiturb() parse error: Function too hairy.  Giving up. 26 seconds
+drivers/usb/core/devio.c:1887 proc_do_submiturb() parse error: Function too hairy.  Giving up. 17 seconds
 drivers/usb/cdns3/core.c:511 cdns3_probe() warn: platform_get_irq() does not return zero
 drivers/usb/phy/phy-tahvo.c:398 tahvo_usb_probe() warn: missing unwind goto?
 drivers/usb/gadget/function/f_printer.c:383 printer_close() error: dereferencing freed memory 'dev'
@@ -5532,7 +5531,7 @@ drivers/usb/serial/io_ti.c:2326 change_port_settings() warn: argument 5 to %2x s
 drivers/usb/serial/io_ti.c:2326 change_port_settings() warn: argument 6 to %2x specifier has type 'char'
 drivers/usb/serial/cp210x.c:1104 cp210x_get_termios_port() error: uninitialized symbol 'bits'.
 drivers/usb/serial/cp210x.c:1268 cp210x_get_an205_rate() error: buffer overflow 'cp210x_an205_table1' 29 <= 29 (assuming for loop doesn't break)
-drivers/usb/serial/usb-serial.c:1051 usb_serial_probe() parse error: turning off implications after 60 seconds
+drivers/usb/serial/usb-serial.c:1055 usb_serial_probe() parse error: turning off implications after 60 seconds
 drivers/usb/common/common.c:95 usb_speed_string() warn: potential spectre issue 'speed_names' [r] (local cap)
 drivers/usb/roles/intel-xhci-usb-role-switch.c:108 intel_xhci_usb_set_role() error: uninitialized symbol 'glk'.
 drivers/usb/usbip/vhci_hcd.c:777 vhci_urb_enqueue() warn: missing error code 'ret'
@@ -5561,6 +5560,8 @@ drivers/regulator/pca9450-regulator.c:825 pca9450_i2c_probe() warn: missing erro
 drivers/regulator/lp3972.c:374 lp3972_dcdc_set_voltage_sel() warn: missing error code? 'ret'
 drivers/regulator/aat2870-regulator.c:142 aat2870_get_regulator() warn: replace divide condition '(id - 1) / 2' with '(id - 1) >= 2'
 drivers/regulator/core.c:5385 regulator_register() error: 'init_data' dereferencing possible ERR_PTR()
+drivers/regulator/core.c:5506 regulator_register() warn: Function too hairy.  No more merges.
+drivers/regulator/core.c:5506 regulator_register() parse error: Function too hairy.  Giving up. 22 seconds
 drivers/firewire/sbp2.c:486 complete_transaction() warn: 'orb' double freed
 drivers/firewire/core-card.c:466 bm_work() warn: always true condition '(root_node->max_hops < (16 / 1 + (0))) => (0-15 < 16)'
 drivers/firewire/core-device.c:565 read_config_rom() error: doing dma on the stack (&dummy)
@@ -5610,7 +5611,6 @@ drivers/scsi/gdth.c:3727 ioc_rescan() warn: potential spectre issue 'ha->hdr' [w
 drivers/scsi/gdth.c:3889 gdth_ioctl() warn: potential spectre issue 'ha->raw' [w] (local cap)
 drivers/scsi/gdth.c:4094 gdth_pci_probe_one() warn: inconsistent indenting
 ./include/scsi/scsi_device.h:477 scsi_execute_req() warn: sizeof(NUMBER)?
-drivers/scsi/scsi_scan.c:455 scsi_alloc_target() parse error: turning off implications after 60 seconds
 drivers/scsi/qedf/qedf_io.c:26 qedf_cmd_timeout() warn: can 'io_req' even be NULL?
 drivers/scsi/qedf/qedf_main.c:3055 qedf_alloc_global_queues() warn: missing unwind goto?
 drivers/scsi/qedf/qedf_main.c:3977 qedf_stag_change_work() warn: can 'qedf' even be NULL?
@@ -5823,6 +5823,7 @@ drivers/scsi/aic7xxx/aic79xx_core.c:9602 ahd_print_register() error: we previous
 drivers/scsi/aic7xxx/aic7xxx_core.c:1825 ahc_handle_scsiint() error: we previously assumed 'scb' could be null (see line 1570)
 drivers/scsi/aic7xxx/aic7xxx_core.c:5282 ahc_init() warn: bitwise AND condition is false here
 drivers/scsi/aic7xxx/aic7xxx_core.c:7072 ahc_print_register() error: we previously assumed 'cur_column' could be null (see line 7065)
+drivers/scsi/scsi_transport_iscsi.c:604 iscsi_iface_attr_is_visible() warn: Function too hairy.  No more merges.
 drivers/scsi/lpfc/lpfc_bsg.c:1358 lpfc_bsg_hba_get_event() warn: variable dereferenced before check 'evt_dat' (see line 1325)
 drivers/scsi/lpfc/lpfc_debugfs.c:5177 lpfc_idiag_extacc_avail_get() error: uninitialized symbol 'ext_cnt'.
 drivers/scsi/lpfc/lpfc_debugfs.c:5177 lpfc_idiag_extacc_avail_get() error: uninitialized symbol 'ext_size'.
@@ -5832,8 +5833,6 @@ drivers/scsi/lpfc/lpfc_els.c:4187 lpfc_els_retry() warn: variable dereferenced b
 drivers/scsi/lpfc/lpfc_init.c:324 lpfc_dump_wakeup_param_cmpl() warn: always true condition '(prg->dist < 4) => (0-3 < 4)'
 drivers/scsi/lpfc/lpfc_init.c:2299 lpfc_parse_vpd() warn: inconsistent indenting
 drivers/scsi/lpfc/lpfc_init.c:4188 lpfc_new_io_buf() warn: argument 5 to %lx specifier is cast from pointer
-drivers/scsi/lpfc/lpfc_init.c:7016 lpfc_sli4_driver_resource_setup() parse error: turning off implications after 60 seconds
-drivers/scsi/lpfc/lpfc_init.c:9279 lpfc_sli4_queue_create() parse error: turning off implications after 60 seconds
 drivers/scsi/lpfc/lpfc_hbadisc.c:2692 lpfc_mbx_cmpl_fcf_rr_read_fcf_rec() error: uninitialized symbol 'vlan_id'.
 drivers/scsi/lpfc/lpfc_hbadisc.c:2793 lpfc_mbx_cmpl_read_fcf_rec() error: uninitialized symbol 'vlan_id'.
 drivers/scsi/lpfc/lpfc_hbadisc.c:4711 lpfc_set_disctmo() warn: argument 8 to %lx specifier is cast from pointer
@@ -5844,7 +5843,6 @@ drivers/scsi/lpfc/lpfc_attr.c:522 lpfc_nvme_info_show() error: strnlen() '"
 Could be more info...
 "' too small (24 vs 4095)
 drivers/scsi/lpfc/lpfc_attr.c:1322 lpfc_reset_pci_bus() warn: address of NULL pointer 'phba->pcidev'
-drivers/scsi/lpfc/lpfc_sli.c:7838 lpfc_sli4_hba_setup() parse error: turning off implications after 60 seconds
 drivers/scsi/qla2xxx/qla_mbx.c:5716 qla2x00_get_thermal_temp() error: uninitialized symbol 'byte'.
 drivers/scsi/qla2xxx/qla_mbx.c:5723 qla2x00_get_thermal_temp() error: uninitialized symbol 'byte'.
 drivers/scsi/qla2xxx/qla_mr.c:805 qlafx00_iospace_config() warn: 'ha->cregbase' from ioremap() not released on lines: 805.
@@ -5853,7 +5851,6 @@ drivers/scsi/qla2xxx/qla_nx.c:1348 qla82xx_pci_mem_write_2M() warn: right shifti
 drivers/scsi/qla2xxx/qla_nx.c:1688 qla82xx_iospace_config() warn: 'ha->pdev' from pci_request_regions() not released on lines: 1688.
 drivers/scsi/qla2xxx/qla_nx2.c:3521 qla8044_poll_flash_status_reg() warn: should this be 'retries == -1'
 drivers/scsi/qla2xxx/qla_tmpl.c:857 qla27xx_walk_template() warn: should this be 'tmp->count == -1'
-drivers/scsi/qla2xxx/qla_os.c:3451 qla2x00_probe_one() parse error: turning off implications after 60 seconds
 drivers/scsi/qla2xxx/qla_os.c:4079 qla2x00_mem_alloc() warn: missing unwind goto?
 drivers/scsi/qla2xxx/qla_os.c:5224 qla24xx_create_new_sess() error: double free of 'pla'
 drivers/scsi/sr_ioctl.c:203 sr_do_ioctl() warn: sizeof(NUMBER)?
@@ -5871,9 +5868,7 @@ drivers/scsi/myrs.c:2519 DAC960_GEM_write_cmd_mbox() error: __memcpy() '&mem_mbo
 drivers/scsi/myrs.c:2519 DAC960_GEM_write_cmd_mbox() error: __memcpy() '&mbox->words[1]' too small (60 vs 84)
 drivers/media/cec/core/cec-adap.c:926 cec_transmit_msg_fh() warn: '&data->list' not removed from list
 drivers/media/platform/vsp1/vsp1_drv.c:463 vsp1_create_entities() warn: Function too hairy.  No more merges.
-drivers/media/platform/vsp1/vsp1_drv.c:463 vsp1_create_entities() parse error: Function too hairy.  Giving up. 26 seconds
-drivers/media/platform/omap3isp/isp.c:308 isp_xclk_init() parse error: turning off implications after 60 seconds
-drivers/media/platform/omap3isp/isp.c:2347 isp_probe() parse error: turning off implications after 60 seconds
+drivers/media/platform/vsp1/vsp1_drv.c:463 vsp1_create_entities() parse error: Function too hairy.  Giving up. 28 seconds
 drivers/media/platform/xilinx/xilinx-dma.c:555 __xvip_dma_try_format() error: 'info' dereferencing possible ERR_PTR()
 drivers/media/platform/xilinx/xilinx-dma.c:664 xvip_dma_init() error: 'dma->fmtinfo' dereferencing possible ERR_PTR()
 drivers/media/platform/mtk-vcodec/venc/venc_h264_if.c:466 h264_encode_frame() warn: missing error code? 'ret'
@@ -5974,7 +5969,7 @@ drivers/media/pci/cx23885/cx23885-dvb.c:2213 dvb_register() error: 'client_tuner
 drivers/media/pci/cx23885/cx23885-dvb.c:2245 dvb_register() error: 'client_sec' dereferencing possible ERR_PTR()
 drivers/media/pci/cx23885/cx23885-dvb.c:2262 dvb_register() error: 'client_tuner' dereferencing possible ERR_PTR()
 drivers/media/pci/cx23885/cx23885-dvb.c:2286 dvb_register() warn: Function too hairy.  No more merges.
-drivers/media/pci/cx23885/cx23885-dvb.c:2286 dvb_register() parse error: Function too hairy.  Giving up. 29 seconds
+drivers/media/pci/cx23885/cx23885-dvb.c:2286 dvb_register() parse error: Function too hairy.  Giving up. 28 seconds
 drivers/media/pci/ivtv/ivtv-i2c.c:245 ivtv_i2c_register() error: buffer overflow 'hw_devicenames' 21 <= 31
 drivers/media/pci/ivtv/ivtv-i2c.c:266 ivtv_i2c_register() error: buffer overflow 'hw_addrs' 21 <= 31
 drivers/media/pci/ivtv/ivtv-i2c.c:269 ivtv_i2c_register() error: buffer overflow 'hw_addrs' 21 <= 31
@@ -5990,7 +5985,6 @@ drivers/media/pci/ttpci/budget-av.c:1451 budget_av_attach() parse error: turning
 drivers/media/pci/ttpci/av7110.c:182 init_av7110_av() warn: Function too hairy.  No more merges.
 drivers/media/pci/ttpci/av7110.c:182 init_av7110_av() parse error: Function too hairy.  Giving up. 14 seconds
 drivers/media/pci/ttpci/av7110.c:810 StartHWFilter() error: uninitialized symbol 'handle'.
-drivers/media/pci/ttpci/budget-ci.c:1471 budget_ci_attach() parse error: turning off implications after 60 seconds
 drivers/media/pci/ttpci/av7110_ca.c:272 dvb_ca_ioctl() warn: potential spectre issue 'av7110->ci_slot' [w] (local cap)
 drivers/media/pci/ngene/ngene-cards.c:433 cineS2_tuner_i2c_lock() warn: inconsistent returns '&chan->dev->pll_mutex'.
   Locked on  : 433
@@ -5999,7 +5993,8 @@ drivers/media/pci/tw686x/tw686x-audio.c:62 tw686x_audio_irq() warn: can 'next' e
 drivers/media/pci/smipcie/smipcie-main.c:491 smi_add_i2c_client() error: 'client' dereferencing possible ERR_PTR()
 drivers/media/v4l2-core/v4l2-ctrls.c:2340 v4l2_ctrl_handler_init_class() warn: Please consider using kvcalloc instead of kvmalloc_array
 drivers/media/v4l2-core/v4l2-i2c.c:95 v4l2_i2c_new_subdev_board() error: 'client' dereferencing possible ERR_PTR()
-drivers/media/v4l2-core/v4l2-subdev.c:602 subdev_do_ioctl() parse error: turning off implications after 60 seconds
+drivers/media/v4l2-core/v4l2-subdev.c:658 subdev_do_ioctl() warn: Function too hairy.  No more merges.
+drivers/media/v4l2-core/v4l2-subdev.c:658 subdev_do_ioctl() parse error: Function too hairy.  Giving up. 56 seconds
 drivers/media/v4l2-core/v4l2-subdev.c:846 v4l2_subdev_alloc_pad_config() warn: Please consider using kvcalloc instead of kvmalloc_array
 drivers/media/v4l2-core/v4l2-fwnode.c:1296 v4l2_fwnode_reference_parse_int_props() warn: 'fwnode' is an error pointer or valid
 drivers/media/i2c/s5c73m3/s5c73m3-core.c:440 __s5c73m3_s_stream() warn: missing error code? 'ret'
@@ -6016,7 +6011,7 @@ drivers/media/i2c/ov8856.c:1467 ov8856_set_format() warn: was && intended here i
 drivers/media/i2c/adp1653.c:446 adp1653_of_init() warn: missing unwind goto?
 drivers/media/i2c/ov7251.c:1043 ov7251_set_format() warn: was && intended here instead of ||?
 drivers/media/i2c/cx25840/cx25840-core.c:4723 cx23885_dif_setup() warn: Function too hairy.  No more merges.
-drivers/media/i2c/cx25840/cx25840-core.c:4723 cx23885_dif_setup() parse error: Function too hairy.  Giving up. 52 seconds
+drivers/media/i2c/cx25840/cx25840-core.c:4723 cx23885_dif_setup() parse error: Function too hairy.  Giving up. 26 seconds
 drivers/media/i2c/ov2680.c:714 ov2680_set_fmt() warn: was && intended here instead of ||?
 drivers/media/i2c/ov5675.c:938 ov5675_set_format() warn: was && intended here instead of ||?
 drivers/media/i2c/adv7180.c:376 adv7180_querystd() warn: inconsistent returns '&state->mutex'.
@@ -6065,7 +6060,7 @@ drivers/media/i2c/smiapp/smiapp-core.c:1529 smiapp_pm_get_init() warn: pm_runtim
 drivers/media/i2c/ov5640.c:1532 ov5640_find_mode() warn: was && intended here instead of ||?
 drivers/media/rc/redrat3.c:829 redrat3_transmit_ir() error: uninitialized symbol 'ret_len'.
 drivers/media/rc/ttusbir.c:355 ttusbir_probe() warn: Function too hairy.  No more merges.
-drivers/media/rc/ttusbir.c:355 ttusbir_probe() parse error: Function too hairy.  Giving up. 21 seconds
+drivers/media/rc/ttusbir.c:355 ttusbir_probe() parse error: Function too hairy.  Giving up. 19 seconds
 drivers/media/rc/nuvoton-cir.c:250 wakeup_data_store() error: uninitialized symbol 'count'.
 drivers/media/rc/bpf-lirc.c:172 lirc_bpf_attach() warn: inconsistent returns '&ir_raw_handler_lock'.
   Locked on  : 149
@@ -6208,12 +6203,10 @@ drivers/media/tuners/xc4000.c:1129 xc_debug_dump() error: uninitialized symbol '
 drivers/media/tuners/it913x.c:65 it913x_init() warn: missing error code 'ret'
 drivers/media/tuners/max2165.c:229 max2165_debug_status() error: uninitialized symbol 'status'.
 drivers/media/tuners/max2165.c:236 max2165_debug_status() error: uninitialized symbol 'autotune'.
-drivers/media/test-drivers/vicodec/vicodec-core.c:2130 vicodec_probe() parse error: turning off implications after 60 seconds
-drivers/media/test-drivers/vivid/vivid-core.c:1164 vivid_disable_unused_ioctls() parse error: turning off implications after 60 seconds
-drivers/media/test-drivers/vivid/vivid-core.c:1919 vivid_create_instance() parse error: turning off implications after 60 seconds
-drivers/media/test-drivers/vivid/vivid-ctrls.c:1846 vivid_create_controls() parse error: turning off implications after 60 seconds
+drivers/media/test-drivers/vivid/vivid-core.c:1892 vivid_create_instance() parse error: turning off implications after 60 seconds
+drivers/media/test-drivers/vivid/vivid-ctrls.c:1855 vivid_create_controls() parse error: turning off implications after 60 seconds
 drivers/media/test-drivers/vivid/vivid-vid-cap.c:449 vivid_update_format_cap() warn: Function too hairy.  No more merges.
-drivers/media/test-drivers/vivid/vivid-vid-cap.c:449 vivid_update_format_cap() parse error: Function too hairy.  Giving up. 24 seconds
+drivers/media/test-drivers/vivid/vivid-vid-cap.c:449 vivid_update_format_cap() parse error: Function too hairy.  Giving up. 22 seconds
 drivers/media/test-drivers/vivid/vivid-vid-cap.c:582 vivid_try_fmt_vid_cap() warn: was && intended here instead of ||?
 drivers/media/test-drivers/vim2m.c:627 device_work() warn: can 'curr_ctx' even be NULL?
 drivers/atm/horizon.c:443 update_tx_channel_config() warn: inconsistent indenting
