@@ -4,6 +4,12 @@
 
 HUST OS Kernel Contribution Team
 
+### Clone This Repository
+
+```
+git clone --recurse-submodules git@github.com:hust-open-atom-club/HUST-OS-Kernel-Contribution.git
+```
+
 ### Testing Kernel with Smatch
 
 Run smatch over linux kernel mainline, linux-next, and openeuler kernel repositories.
